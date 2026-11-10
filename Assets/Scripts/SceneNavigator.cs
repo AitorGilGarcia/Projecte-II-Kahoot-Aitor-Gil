@@ -30,7 +30,7 @@ public class SceneNavigator : MonoBehaviour
     // Vuelve al menú principal.
     public void GoToMainMenu()
     {
-        LoadScene("MainMenu");
+        LoadScene("EscenaMenuPrincipalKahoot");
     }
 
     // Cierra el juego.

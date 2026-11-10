@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 132844567}
   - component: {fileID: 132844566}
   - component: {fileID: 132844565}
+  - component: {fileID: 132844568}
   m_Layer: 5
   m_Name: Button Create Kahoot
   m_TagString: Untagged
@@ -202,10 +203,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1549596360}
-        m_TargetAssemblyTypeName: SceneNavigator, Assembly-CSharp
+      - m_Target: {fileID: 132844568}
+        m_TargetAssemblyTypeName: SceneButton, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -252,6 +253,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132844563}
   m_CullTransparentMesh: 1
+--- !u!114 &132844568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132844563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b6b48a4cd6c224c917a4431c7f4e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneButton
+  sceneName: EscenaCrearKahoot
 --- !u!1 &135901092
 GameObject:
   m_ObjectHideFlags: 0
