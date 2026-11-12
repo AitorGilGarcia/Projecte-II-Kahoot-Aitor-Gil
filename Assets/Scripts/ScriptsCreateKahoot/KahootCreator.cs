@@ -17,7 +17,7 @@ public class KahootCreator : MonoBehaviour
     [SerializeField] private TMP_InputField[] answerInputs;
 
     // Todas las preguntas del Kahoot.
-    private List<QuestionData> questions = new List<QuestionData>();
+    private List<QuestionData> questions = new List<QuestionData>(); //utiliza QuestionData
 
     // Índice de la pregunta que estamos editando.
     private int currentQuestionIndex = 0;
