@@ -1,17 +1,12 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
 
-public class KahootData : MonoBehaviour
+[Serializable]
+public class KahootData // este script almacena los datos generales del Kahoot
 {
+    public string title;
+    public string description;
 
-    // este script almacena los datos generales del Kahoot
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
+    public List<QuestionData> questions = new List<QuestionData>();
 }
+
