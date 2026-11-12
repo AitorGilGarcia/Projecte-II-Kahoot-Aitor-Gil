@@ -37,6 +37,8 @@ public static class KahootSaveSystem // este script convierte los datos en JSON 
             // Escribimos el archivo.
             File.WriteAllText(filePath, json);
 
+
+            // Mostramos la ruta del archivo generado.
             Debug.Log("Kahoot guardado correctamente: " + filePath);
 
             return true;
