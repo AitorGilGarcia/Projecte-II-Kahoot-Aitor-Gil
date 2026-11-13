@@ -14,7 +14,7 @@ public class PlayerNameInput : MonoBehaviour
         }
 
         PlayerData.SetPlayerName(nameInput.text.Trim());
-
+        Debug.Log(PlayerData.PlayerName);
         // Aquí iniciaremos la partida.
     }
 }
