@@ -8,4 +8,4 @@ public static class GameSession
 	}
 }
 
-//este script lo que hace es guardar que kahoot hemos seleccioando
+//este script lo que hace es guardar que kahoot hemos seleccionado
