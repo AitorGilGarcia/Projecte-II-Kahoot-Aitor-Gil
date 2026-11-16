@@ -1468,6 +1468,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b67d7d84025034b8b77242c0668289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  questionText: {fileID: 1232952066}
+  timerText: {fileID: 264549607}
+  questionCounterText: {fileID: 1367124763}
+  answerButtons:
+  - {fileID: 1328793430}
+  - {fileID: 100365218}
+  - {fileID: 1844068145}
+  - {fileID: 1361873645}
+  feedbackDuration: 3
 --- !u!4 &1300145358
 Transform:
   m_ObjectHideFlags: 0
