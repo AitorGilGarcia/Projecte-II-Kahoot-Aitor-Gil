@@ -76,7 +76,8 @@ public class KahootListManager : MonoBehaviour
     {
         Debug.Log("Has seleccionado: " + kahoot.title);
 
-        // Más adelante conectaremos aquí la selección
-        // con la escena de juego.
-    }
+		GameSession.SetSelectedKahoot(kahoot); //Guardamos que kahoot hemos seleccionado para jugar
+
+		UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaGame"); // vamos a la escena de donde esta la partida
+	}
 }
