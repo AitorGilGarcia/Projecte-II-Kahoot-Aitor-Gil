@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     private KahootData currentKahoot;
     private int currentQuestionIndex = 0;
 
+    [Header("Puntuación")]
+    private int totalScore = 0;
+    [SerializeField] private int maxPoints = 1000;
+
     [Header("Textos de la interfaz")]
     [SerializeField] private TMP_Text questionText;
     [SerializeField] private TMP_Text timerText;
@@ -23,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private bool answered = false;
     private Coroutine questionCoroutine;
-
+    private int remainingTime; // variable que es para saber cuanto le queda de tiempo, mas enfocado para la puntuación
     private void Start()
     {
         currentKahoot = GameSession.SelectedKahoot;
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         answered = false;
 
-        QuestionData question = currentKahoot.questions[currentQuestionIndex];
+        QuestionData question = currentKahoot.questions[currentQuestionIndex]; // pilla la pregunta del currentKahoot, que es el GameSession
 
         // Mostramos el enunciado.
         questionText.text = question.questionText;
@@ -119,6 +123,15 @@ public class GameManager : MonoBehaviour
         if (questionCoroutine != null)
             StopCoroutine(questionCoroutine);
 
+        QuestionData question =
+        currentKahoot.questions[currentQuestionIndex];
+
+        if (answerIndex == question.correctAnswerIndex)
+        {
+            CalculateScore();
+        }
+
+
         // Mostramos los colores de las respuestas.
         RevealAnswer(answerIndex);
 
@@ -182,6 +195,24 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+    }
+    private void CalculateScore()
+    {
+        QuestionData question =
+            currentKahoot.questions[currentQuestionIndex];
+
+        int timeLimit = question.timeLimit > 0
+            ? question.timeLimit
+            : 20;
+
+        int points = Mathf.RoundToInt(
+            maxPoints * (float)remainingTime / timeLimit
+        );
+
+        totalScore += points;
+
+        Debug.Log("Puntos conseguidos: " + points);
+        Debug.Log("Puntuación total: " + totalScore);
     }
 
     private void EndGame()
