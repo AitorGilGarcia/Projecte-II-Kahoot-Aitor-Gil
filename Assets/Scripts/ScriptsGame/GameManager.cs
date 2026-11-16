@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text questionText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text questionCounterText;
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text scoreFinalText;
 
     [Header("Botones de respuestas")]
     [SerializeField] private Button[] answerButtons;
@@ -25,11 +27,17 @@ public class GameManager : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private float feedbackDuration = 3f;
 
+    [Header("Paneles")]
+    [SerializeField] private GameObject gamePanel;
+    [SerializeField] private GameObject resultsPanel;
+
     private bool answered = false;
     private Coroutine questionCoroutine;
     private int remainingTime; // variable que es para saber cuanto le queda de tiempo, mas enfocado para la puntuación
     private void Start()
     {
+        scoreText.text = "Puntos: 0"; // setteo la puntuación a 0 en el texto 
+
         currentKahoot = GameSession.SelectedKahoot;
 
         if (currentKahoot == null || currentKahoot.questions.Count == 0)
@@ -87,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator QuestionTimer(int timeLimit)
     {
-        int remainingTime = timeLimit > 0 ? timeLimit : 20;
+        remainingTime = timeLimit > 0 ? timeLimit : 20;
 
         while (remainingTime > 0 && !answered)
         {
@@ -210,7 +218,9 @@ public class GameManager : MonoBehaviour
         );
 
         totalScore += points;
-
+         
+        scoreText.text = "Puntos: " + totalScore; // actualizo el texto con sus puntos que tiene 
+         
         Debug.Log("Puntos conseguidos: " + points);
         Debug.Log("Puntuación total: " + totalScore);
     }
@@ -219,7 +229,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("¡Partida finalizada!");
 
-        // Más adelante mostraremos el panel de resultados.
+        scoreFinalText.text = "Puntuación final: " + totalScore; // actualizamos el texto final para mostrar la puntuación
+
+        gamePanel.SetActive(false);
+        resultsPanel.SetActive(true);
+
+
+
     }
 }
 
