@@ -9,7 +9,12 @@ public class KahootListManager : MonoBehaviour
     [SerializeField] private GameObject kahootItemPrefab;
     [SerializeField] private Transform contentParent;
 
-    private void Start()
+	[Header("Destino")]
+	[SerializeField] private bool openLeaderboard;
+	[SerializeField] private LeaderboardManager leaderboardManager;
+
+
+	private void Start()
     {
         LoadKahoots();
     }
@@ -42,6 +47,7 @@ public class KahootListManager : MonoBehaviour
                 {
                     Debug.LogWarning("No se ha podido leer: " + filePath);
                     continue;
+
                 }
 
                 // Creamos una copia del prefab dentro de Content.
@@ -54,6 +60,7 @@ public class KahootListManager : MonoBehaviour
                 {
                     itemUI.Setup(kahoot, OnKahootSelected);
                 }
+
                 else
                 {
                     Debug.LogError("El prefab no tiene KahootItemUI.");
@@ -76,8 +83,19 @@ public class KahootListManager : MonoBehaviour
     {
         Debug.Log("Has seleccionado: " + kahoot.title);
 
-		GameSession.SetSelectedKahoot(kahoot); //Guardamos que kahoot hemos seleccionado para jugar
 
-		UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaGame"); // vamos a la escena de donde esta la partida
+        // depende que escena este haciendo, hace una cosa o otra
+		if (openLeaderboard)
+		{
+			leaderboardManager.ShowLeaderboard(kahoot);
+		}
+
+        else
+        {
+			GameSession.SetSelectedKahoot(kahoot); //Guardamos que kahoot hemos seleccionado para jugar
+
+			UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaGame"); // vamos a la escena de donde esta la partida ---- mirar esto
+		}
+		
 	}
 }
