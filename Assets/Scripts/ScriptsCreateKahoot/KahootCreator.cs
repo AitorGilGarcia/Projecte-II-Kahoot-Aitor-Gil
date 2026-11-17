@@ -126,5 +126,22 @@ public class KahootCreator : MonoBehaviour
         KahootSaveSystem.Save(kahoot);
     }
 
+
+	public void LoadDefaultKahoot(KahootData kahoot)
+	{
+		// Cargamos los datos generales.
+		titleInput.text = kahoot.title;
+		descriptionInput.text = kahoot.description;
+
+		// Sustituimos las preguntas actuales por las del Kahoot por defecto.
+		questions = new List<QuestionData>(kahoot.questions);
+
+		// Volvemos a la primera pregunta.
+		currentQuestionIndex = 0;
+
+		// Mostramos la primera pregunta en la interfaz.
+		LoadQuestion();
+	}
+
 }
 
