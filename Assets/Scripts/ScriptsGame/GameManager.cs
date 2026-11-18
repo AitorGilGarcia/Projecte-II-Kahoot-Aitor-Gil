@@ -31,11 +31,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject resultsPanel;
 
+
+    private float gameStartTime;
     private bool answered = false;
     private Coroutine questionCoroutine;
     private int remainingTime; // variable que es para saber cuanto le queda de tiempo, mas enfocado para la puntuación
     private void Start()
     {
+
         scoreText.text = "Puntos: 0"; // setteo la puntuación a 0 en el texto 
 
         currentKahoot = GameSession.SelectedKahoot;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        gameStartTime = Time.time;
         // Conectamos los cuatro botones con sus respectivos índices.
         for (int i = 0; i < answerButtons.Length; i++)
         {
@@ -227,9 +231,25 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
+        //Debug.Log("¡Partida finalizada!");
+
+        //scoreFinalText.text = "Puntuación final: " + totalScore; // actualizamos el texto final para mostrar la puntuación
+
+        //gamePanel.SetActive(false);
+        //resultsPanel.SetActive(true);
+
         Debug.Log("¡Partida finalizada!");
 
-        scoreFinalText.text = "Puntuación final: " + totalScore; // actualizamos el texto final para mostrar la puntuación
+        scoreFinalText.text = "Puntuación final: " + totalScore;
+
+        // Calculamos el tiempo total de la partida.
+        int totalTime = Mathf.RoundToInt(Time.time - gameStartTime);
+
+        // Recuperamos el nombre del jugador.
+        string playerName = PlayerData.PlayerName;
+
+        // Guardamos el resultado.
+        LeaderboardSaveSystem.SaveResult(currentKahoot, playerName, totalScore, totalTime);
 
         gamePanel.SetActive(false);
         resultsPanel.SetActive(true);
