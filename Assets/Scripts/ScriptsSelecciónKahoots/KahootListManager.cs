@@ -37,6 +37,8 @@ public class KahootListManager : MonoBehaviour
         {
             try
             {
+                
+
                 // Leemos el contenido del archivo.
                 string json = File.ReadAllText(filePath);
 
@@ -48,6 +50,15 @@ public class KahootListManager : MonoBehaviour
                     Debug.LogWarning("No se ha podido leer: " + filePath);
                     continue;
 
+                }
+
+                // Asignamos un ID a los Kahoots antiguos que todavía no lo tienen.
+                if (string.IsNullOrEmpty(kahoot.id))
+                {
+                    kahoot.id = Guid.NewGuid().ToString();
+
+                    // Actualizamos el JSON para conservar el identificador.
+                    File.WriteAllText(filePath, JsonUtility.ToJson(kahoot, true));
                 }
 
                 // Creamos una copia del prefab dentro de Content.

@@ -26,10 +26,13 @@ public static class KahootSaveSystem // este script convierte los datos en JSON 
             // Evitamos sobrescribir otros Kahoots.
             fileName += "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
-            string filePath = Path.Combine(
-                folderPath,
-                fileName + ".json"
-            );
+            string filePath = Path.Combine(folderPath, fileName + ".json" );
+
+            // Si no tiene identificador, le asignamos uno único.
+            if (string.IsNullOrEmpty(kahoot.id))
+            {
+                kahoot.id = Guid.NewGuid().ToString();
+            }
 
             // Convertimos el objeto en JSON.
             string json = JsonUtility.ToJson(kahoot, true); // convierte nuestras clases en JSON.
