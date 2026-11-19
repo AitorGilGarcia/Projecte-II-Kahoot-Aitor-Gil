@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ReportItemUI : MonoBehaviour // Mostrar el nombre del archivo y gestionar su selección.
