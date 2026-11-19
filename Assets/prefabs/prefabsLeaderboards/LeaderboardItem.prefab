@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8494825749696578026}
   - component: {fileID: 5931979861391172460}
   - component: {fileID: 3210722694920900077}
+  - component: {fileID: 5683650302299447877}
   m_Layer: 5
   m_Name: TiempoRealizado
   m_TagString: Untagged
@@ -137,6 +138,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5683650302299447877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285937437769025687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 130
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &2355462415380601918
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +169,7 @@ GameObject:
   - component: {fileID: 8817315402257194699}
   - component: {fileID: 5388802859661660269}
   - component: {fileID: 5178910168039639533}
+  - component: {fileID: 4370642546173240111}
   m_Layer: 5
   m_Name: "Puntuaci\xF3n"
   m_TagString: Untagged
@@ -274,6 +296,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4370642546173240111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355462415380601918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 130
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &6466746558425805095
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,9 +374,9 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 3
-  m_Spacing: 3
-  m_ChildForceExpandWidth: 0
+  m_ChildAlignment: 4
+  m_Spacing: 15
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
@@ -372,6 +414,7 @@ GameObject:
   - component: {fileID: 8547600193743810065}
   - component: {fileID: 5542455772650409566}
   - component: {fileID: 8600885530219858765}
+  - component: {fileID: 3693279958677989220}
   m_Layer: 5
   m_Name: "Posici\xF3nJugador"
   m_TagString: Untagged
@@ -498,6 +541,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3693279958677989220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7182183167397207892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 60
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &7236208412250511643
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +572,8 @@ GameObject:
   - component: {fileID: 2951247148801789653}
   - component: {fileID: 4122924411935649172}
   - component: {fileID: 2212307349332739445}
+  - component: {fileID: 6392482636759965265}
+  - component: {fileID: 1565312586800228671}
   m_Layer: 5
   m_Name: NombrePlayer
   m_TagString: Untagged
@@ -635,6 +700,52 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6392482636759965265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236208412250511643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &1565312586800228671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236208412250511643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 200
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &7605705699145471637
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +760,7 @@ GameObject:
   - component: {fileID: 3472860497535315437}
   - component: {fileID: 7481782088159425046}
   - component: {fileID: 7730502017543710078}
+  - component: {fileID: 851718909727728011}
   m_Layer: 5
   m_Name: LeaderboardItem
   m_TagString: Untagged
@@ -673,8 +785,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: -980}
+  m_AnchoredPosition: {x: 237.30103, y: -68.135895}
+  m_SizeDelta: {x: 574.6019, y: -843.7282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &765575326403706636
 CanvasRenderer:
@@ -730,7 +842,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 150
+  m_PreferredHeight: 70
   m_FlexibleWidth: -1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
@@ -775,3 +887,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &851718909727728011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605705699145471637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c337ea1ed88f9741876a70477abd9b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeaderboardItemUI
+  positionText: {fileID: 8600885530219858765}
+  playerNameText: {fileID: 2212307349332739445}
+  scoreText: {fileID: 3210722694920900077}
+  timeText: {fileID: 3210722694920900077}
