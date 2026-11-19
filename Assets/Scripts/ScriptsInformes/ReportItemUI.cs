@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class ReportItemUI : MonoBehaviour // Mostrar el nombre del archivo y gestionar su selección.
+//muestra el nombre del archivo y permite seleccionarlo.
+public class ReportItemUI : MonoBehaviour 
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
