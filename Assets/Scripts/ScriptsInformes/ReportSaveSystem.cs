@@ -10,8 +10,17 @@ using static UnityEditor.PlayerSettings;
 
 public static class ReportSaveSystem // lo hacemos estatico para poder utilizarlo desde donde sea sin tener que asignarlo en ningun sitio 
 {
-    // Guardar todos los informes en esta carpeta.
-    private static string GetReportsFolder() // Obtiene la ruta de la carpeta Reports dentro de Application.persistentDataPath.
+	public static void CreateTestReport() // hace un test de un error
+	{
+		SaveReport(
+			"Error de prueba",
+			"archivo_prueba.json",
+			new Exception("Esto es una excepción de prueba del sistema de informes.")
+		);
+	}
+
+	// Guardar todos los informes en esta carpeta.
+	private static string GetReportsFolder() // Obtiene la ruta de la carpeta Reports dentro de Application.persistentDataPath.
     {
         string folderPath = Path.Combine(Application.persistentDataPath, "Reports");
 
@@ -92,5 +101,7 @@ public static class ReportSaveSystem // lo hacemos estatico para poder utilizarl
 
             return false;
         }
+
+
     }
 }
