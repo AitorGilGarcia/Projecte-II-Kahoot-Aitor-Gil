@@ -102,8 +102,23 @@ public class KahootCreator : MonoBehaviour
     }
 
 
-    // Guarda el Kahoot completo en un archivo JSON.
-    public void SaveKahoot()
+	// Comprueba si una pregunta está completamente vacía.
+	private bool IsQuestionEmpty(QuestionData question)
+	{
+		if (!string.IsNullOrWhiteSpace(question.questionText))
+			return false;
+
+		foreach (string answer in question.answers)
+		{
+			if (!string.IsNullOrWhiteSpace(answer))
+				return false;
+		}
+
+		return true;
+	}
+
+	// Guarda el Kahoot completo en un archivo JSON.
+	public void SaveKahoot()
     {
         // Guardamos primero la pregunta que estamos editando.
         SaveCurrentQuestion();
@@ -114,13 +129,24 @@ public class KahootCreator : MonoBehaviour
             return;
         }
 
-        // Creamos el objeto con todos los datos.
-        KahootData kahoot = new KahootData
+		// Creamos una lista solamente con las preguntas que tienen contenido.
+		List<QuestionData> validQuestions = questions.FindAll(question => !IsQuestionEmpty(question));
+
+		// Comprobamos que haya al menos una pregunta.
+		if (validQuestions.Count == 0)
+		{
+			Debug.LogWarning("El Kahoot necesita al menos una pregunta.");
+			return;
+		}
+
+
+		// Creamos el objeto con todos los datos.
+		KahootData kahoot = new KahootData
         {
             title = titleInput.text,
             description = descriptionInput.text,
-            questions = questions
-        };
+            questions = validQuestions // metemos las respuesas validad y no las vacias
+		};
 
         // Guardamos el archivo JSON.
         KahootSaveSystem.Save(kahoot);
