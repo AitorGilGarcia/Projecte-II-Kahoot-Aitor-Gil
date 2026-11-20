@@ -1836,6 +1836,7 @@ MonoBehaviour:
   feedbackDuration: 3
   gamePanel: {fileID: 1954180060}
   resultsPanel: {fileID: 1241628438}
+  namePanel: {fileID: 1956331976}
 --- !u!4 &1300145358
 Transform:
   m_ObjectHideFlags: 0

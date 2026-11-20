@@ -2,6 +2,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -15,15 +16,20 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private GameObject leaderboardItemPrefab;
     [SerializeField] private TMP_Text emptyText;
 
+	private bool returnToGameAfterLeaderboard = false;
+
 	private void Start() // comprobamos si esta entrando despues de la partida o si simplemente va a entrar por el menu principal
 	{
 		if (GameSession.ConsumeDirectLeaderboardRequest()
 			&& GameSession.SelectedKahoot != null)
 		{
+			returnToGameAfterLeaderboard = true;
 			ShowLeaderboard(GameSession.SelectedKahoot);
 		}
 		else
 		{
+			returnToGameAfterLeaderboard = false;
+
 			panelSeleccionKahoot.SetActive(true);
 			panelLeaderboard.SetActive(false);
 		}
@@ -78,7 +84,17 @@ public class LeaderboardManager : MonoBehaviour
 
 	public void BackToSelection()
 	{
-		panelLeaderboard.SetActive(false);
-		panelSeleccionKahoot.SetActive(true);
+		// Si hemos entrado desde una partida, volvemos a sus resultados.
+		if (returnToGameAfterLeaderboard)
+		{
+			GameSession.RequestShowResultsOnReturn();
+			UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaGame");
+		}
+		else
+		{
+			// Si hemos entrado desde el menú, volvemos al selector.
+			panelLeaderboard.SetActive(false);
+			panelSeleccionKahoot.SetActive(true);
+		}
 	}
 }

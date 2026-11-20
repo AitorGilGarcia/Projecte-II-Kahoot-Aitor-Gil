@@ -33,15 +33,16 @@ public class GameManager : MonoBehaviour
     [Header("Paneles")]
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject resultsPanel;
+	[SerializeField] private GameObject namePanel;
 
 
-    private float gameStartTime;
+	private float gameStartTime;
     private bool answered = false;
     private Coroutine questionCoroutine;
     private int remainingTime; // variable que es para saber cuanto le queda de tiempo, mas enfocado para la puntuación
+
     private void Start()
     {
-
         scoreText.text = "Puntos: 0"; // setteo la puntuación a 0 en el texto 
 
         currentKahoot = GameSession.SelectedKahoot;
@@ -52,7 +53,21 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        gameStartTime = Time.time;
+
+		// Comprobamos si volvemos desde la leaderboard.
+		if (GameSession.ConsumeShowResultsOnReturn())
+		{
+			scoreFinalText.text = "Puntuación final: " + GameSession.FinalScore;
+
+			namePanel.SetActive(false);
+			gamePanel.SetActive(false);
+			resultsPanel.SetActive(true);
+
+			return;
+		}
+
+		// iniciamos todo
+		gameStartTime = Time.time;
         // Conectamos los cuatro botones con sus respectivos índices.
         for (int i = 0; i < answerButtons.Length; i++)
         {
@@ -234,16 +249,12 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        //Debug.Log("¡Partida finalizada!");
-
-        //scoreFinalText.text = "Puntuación final: " + totalScore; // actualizamos el texto final para mostrar la puntuación
-
-        //gamePanel.SetActive(false);
-        //resultsPanel.SetActive(true);
 
         Debug.Log("¡Partida finalizada!");
 
-        scoreFinalText.text = "Puntuación final: " + totalScore;
+		GameSession.SetFinalScore(totalScore); // indicamos la puntuacion final para poder guardarla
+
+		scoreFinalText.text = "Puntuación final: " + totalScore;
 
         // Calculamos el tiempo total de la partida.
         int totalTime = Mathf.RoundToInt(Time.time - gameStartTime);
@@ -254,7 +265,9 @@ public class GameManager : MonoBehaviour
         // Guardamos el resultado.
         LeaderboardSaveSystem.SaveResult(currentKahoot, playerName, totalScore, totalTime);
 
-        gamePanel.SetActive(false);
+		
+
+		gamePanel.SetActive(false);
         resultsPanel.SetActive(true);
 
     }
