@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
+
+
 
 public class GameManager : MonoBehaviour
 {
@@ -254,9 +257,15 @@ public class GameManager : MonoBehaviour
         gamePanel.SetActive(false);
         resultsPanel.SetActive(true);
 
-
-
     }
+
+	public void OpenCurrentKahootLeaderboard() // esto es para poder solicitar el abrir la leaderboard al acabar la partida C:
+	{
+		GameSession.RequestDirectLeaderboard();
+
+		SceneManager.LoadScene("EscenaLeaderboards");
+	}
+
 }
 
 //este script lo que hace es gestionar la partida

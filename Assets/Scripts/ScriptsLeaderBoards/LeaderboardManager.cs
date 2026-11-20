@@ -15,8 +15,21 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private GameObject leaderboardItemPrefab;
     [SerializeField] private TMP_Text emptyText;
 
+	private void Start() // comprobamos si esta entrando despues de la partida o si simplemente va a entrar por el menu principal
+	{
+		if (GameSession.ConsumeDirectLeaderboardRequest()
+			&& GameSession.SelectedKahoot != null)
+		{
+			ShowLeaderboard(GameSession.SelectedKahoot);
+		}
+		else
+		{
+			panelSeleccionKahoot.SetActive(true);
+			panelLeaderboard.SetActive(false);
+		}
+	}
 
-    public void ShowLeaderboard(KahootData kahoot)
+	public void ShowLeaderboard(KahootData kahoot)
 	{
 		// Ocultamos la selección de Kahoots.
 		panelSeleccionKahoot.SetActive(false);
