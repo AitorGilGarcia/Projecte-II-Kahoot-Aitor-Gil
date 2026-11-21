@@ -45,15 +45,18 @@ public class KahootListManager : MonoBehaviour
                 // Convertimos el JSON en un objeto KahootData.
                 KahootData kahoot = JsonUtility.FromJson<KahootData>(json);
 
-                if (kahoot == null)
-                {
-                    Debug.LogWarning("No se ha podido leer: " + filePath);
-                    continue;
+				if (kahoot == null || string.IsNullOrWhiteSpace(kahoot.title) || kahoot.questions == null) // esto si el kahoot no existe, no tiene titulo o no tiene preguntas
+                                                                                                           // salta la excepcion de que no es corecto el kahoot
+				{
+					Debug.LogWarning("No se ha podido leer correctamente: " + filePath);
 
-                }
+					ReportSaveSystem.SaveReport("Archivo JSON incorrecto", filePath, new Exception("El archivo no tiene los datos necesarios para crear un Kahoot "));
 
-                // Asignamos un ID a los Kahoots antiguos que todavía no lo tienen.
-                if (string.IsNullOrEmpty(kahoot.id))
+					continue;
+				}
+
+				// Asignamos un ID a los Kahoots antiguos que todavía no lo tienen.
+				if (string.IsNullOrEmpty(kahoot.id))
                 {
                     kahoot.id = Guid.NewGuid().ToString();
 
@@ -83,7 +86,9 @@ public class KahootListManager : MonoBehaviour
                 Debug.LogError(
                     "Error leyendo el archivo " + filePath + ": " + e.Message
                 );
-            }
+
+				ReportSaveSystem.SaveReport("Error al cargar un Kahoot", filePath, e); // hacemos la excepción 
+			}
         }
 
         Debug.Log("Kahoots encontrados: " + files.Length);

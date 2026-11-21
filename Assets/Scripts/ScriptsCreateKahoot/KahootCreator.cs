@@ -15,9 +15,10 @@ public class KahootCreator : MonoBehaviour
     [SerializeField] private TMP_InputField timeInput;
     [SerializeField] private TMP_InputField questionInput;
     [SerializeField] private TMP_InputField[] answerInputs;
+	[SerializeField] private UnityEngine.UI.Button[] correctAnswerButtons;
 
-    // Todas las preguntas del Kahoot.
-    private List<QuestionData> questions = new List<QuestionData>(); //utiliza QuestionData
+	// Todas las preguntas del Kahoot.
+	private List<QuestionData> questions = new List<QuestionData>(); //utiliza QuestionData
 
     // Índice de la pregunta que estamos editando.
     private int currentQuestionIndex = 0;
@@ -59,10 +60,10 @@ public class KahootCreator : MonoBehaviour
             answerInputs[i].text = question.answers[i];
         }
 
-        timeInput.text = question.timeLimit > 0
-            ? question.timeLimit.ToString()
-            : "20";
-    }
+        timeInput.text = question.timeLimit > 0 ? question.timeLimit.ToString() : "20";
+
+		UpdateCorrectAnswerColor();
+	}
 
     // Selecciona la respuesta correcta.
     public void SetCorrectAnswer(int answerIndex)
@@ -71,10 +72,27 @@ public class KahootCreator : MonoBehaviour
             return;
 
         questions[currentQuestionIndex].correctAnswerIndex = answerIndex;
-    }
+		UpdateCorrectAnswerColor();
+	}
 
-    // Va a la pregunta anterior.
-    public void PreviousQuestion()
+	// Actualiza el color de los botones segun la respuesta seleccionada
+	private void UpdateCorrectAnswerColor()
+	{
+		int correctIndex = questions[currentQuestionIndex].correctAnswerIndex;
+
+		for (int i = 0; i < correctAnswerButtons.Length; i++)
+		{
+			if (correctAnswerButtons[i] == null) {
+				continue;
+			}
+
+			correctAnswerButtons[i].image.color = i == correctIndex ? Color.green : Color.white;
+		}
+	}
+
+
+	// Va a la pregunta anterior.
+	public void PreviousQuestion()
     {
         SaveCurrentQuestion();
 

@@ -3676,6 +3676,11 @@ MonoBehaviour:
   - {fileID: 1198224873}
   - {fileID: 1636928902}
   - {fileID: 1752828296}
+  correctAnswerButtons:
+  - {fileID: 179493741}
+  - {fileID: 223450379}
+  - {fileID: 321791392}
+  - {fileID: 202928139}
 --- !u!4 &616869063
 Transform:
   m_ObjectHideFlags: 0
