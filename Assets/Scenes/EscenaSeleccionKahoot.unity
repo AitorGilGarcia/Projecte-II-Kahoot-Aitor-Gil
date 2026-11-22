@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 667322498}
   - component: {fileID: 667322497}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextoTituloSeleccionarKahoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
