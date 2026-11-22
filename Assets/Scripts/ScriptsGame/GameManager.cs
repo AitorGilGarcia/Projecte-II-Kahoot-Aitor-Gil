@@ -292,7 +292,7 @@ public class GameManager : MonoBehaviour
 
 		GameSession.SetFinalScore(totalScore); // indicamos la puntuacion final para poder guardarla
 
-		scoreFinalText.text = "Puntuación final: " + totalScore;
+		scoreFinalText.text = /** "Puntuación final: "**/ ""+ totalScore;
 
         // Calculamos el tiempo total de la partida.
         int totalTime = Mathf.RoundToInt(Time.time - gameStartTime);
