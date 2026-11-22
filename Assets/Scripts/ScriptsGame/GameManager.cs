@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 		// Comprobamos si volvemos desde la leaderboard.
 		if (GameSession.ConsumeShowResultsOnReturn())
 		{
-			scoreFinalText.text = "Puntuación final: " + GameSession.FinalScore;
+			scoreFinalText.text = /**"Puntuación final: " + **/ "" + GameSession.FinalScore;
 
 			namePanel.SetActive(false);
 			gamePanel.SetActive(false);
