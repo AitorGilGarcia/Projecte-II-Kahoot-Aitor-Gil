@@ -5,8 +5,6 @@ using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
 
-
-
 public class GameManager : MonoBehaviour
 {
     [Header("Datos de la partida")]
@@ -30,7 +28,10 @@ public class GameManager : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private float feedbackDuration = 3f;
 
-    [Header("Paneles")]
+	[Header("Audio")]
+	[SerializeField] private AudioClip answerFeedbackSFX;
+
+	[Header("Paneles")]
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject resultsPanel;
 	[SerializeField] private GameObject namePanel;
@@ -86,7 +87,10 @@ public class GameManager : MonoBehaviour
     {
         answered = false;
 
-        QuestionData question = currentKahoot.questions[currentQuestionIndex]; // pilla la pregunta del currentKahoot, que es el GameSession
+		// Iniciamos la música de la partida.
+		AudioManager.Instance?.PlayGameplayMusic();
+
+		QuestionData question = currentKahoot.questions[currentQuestionIndex]; // pilla la pregunta del currentKahoot, que es el GameSession
 
         // Mostramos el enunciado.
         questionText.text = question.questionText;
@@ -133,7 +137,11 @@ public class GameManager : MonoBehaviour
         {
             answered = true;
 
-            RevealAnswer(-1);
+			// Detenemos la música y reproducimos el efecto de respuesta.
+			AudioManager.Instance?.StopMusic();
+			AudioManager.Instance?.PlaySFX(answerFeedbackSFX);
+
+			RevealAnswer(-1);
 
             yield return new WaitForSeconds(feedbackDuration);
 
@@ -143,14 +151,18 @@ public class GameManager : MonoBehaviour
 
     private void SelectAnswer(int answerIndex)
     {
-        // Evitamos que se pueda responder varias veces.
+        // Evitamos que se pueda responder varias veces
         if (answered)
             return;
 
         answered = true;
 
-        // Detenemos la cuenta atrás.
-        if (questionCoroutine != null)
+		// Detenemos la música y reproducimos el efecto de respuesta 
+		AudioManager.Instance?.StopMusic();
+		AudioManager.Instance?.PlaySFX(answerFeedbackSFX);
+
+		// Detenemos la cuenta atrás
+		if (questionCoroutine != null)
             StopCoroutine(questionCoroutine);
 
         QuestionData question =
@@ -251,6 +263,9 @@ public class GameManager : MonoBehaviour
     {
 
         Debug.Log("¡Partida finalizada!");
+
+		// Recuperamos la música de los menús.
+		AudioManager.Instance?.PlayMenuMusic();
 
 		GameSession.SetFinalScore(totalScore); // indicamos la puntuacion final para poder guardarla
 
