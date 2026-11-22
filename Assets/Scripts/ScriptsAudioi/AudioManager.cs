@@ -1,4 +1,4 @@
-
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -13,6 +13,9 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] private AudioSource gameplayMusicSource;
 	[SerializeField] private AudioSource sfxSource;
 
+	[Header("Audio Mixer")]
+	[SerializeField] private AudioMixer audioMixer;
+
 	private void Awake()
 	{
 		// Evitar tener varios AudioManagers
@@ -24,10 +27,12 @@ public class AudioManager : MonoBehaviour
 
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
+		
 	}
 
 	private void Start()
 	{
+		LoadAudioSettings(); // cargamos las los ajustes para que se aplique el volumen y no cuando abra el panel de ajustes
 		PlayMenuMusic();
 	}
 
@@ -72,9 +77,27 @@ public class AudioManager : MonoBehaviour
 		gameplayMusicSource.Stop();
 	}
 
-	public void PlayButtonClick()
+	public void PlayButtonClick() // metodo para que suene el sonido del clic de los botones
 	{
 		if (buttonClickSFX != null)
 			sfxSource.PlayOneShot(buttonClickSFX);
+	}
+
+	private void LoadAudioSettings() // metodo que pilla el volumen de la musica, con la intencion de que cuando ejecute el juego ya se aplique y
+									 // no tenga que abrir el panel de ajustes
+	{
+		float music = PlayerPrefs.GetFloat("MusicVolume", 1f);
+		float gameplay = PlayerPrefs.GetFloat("GameplayMusicVolume", 1f);
+		float sfx = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
+		SetMixerVolume("MusicVolume", music);
+		SetMixerVolume("GameplayMusicVolume", gameplay);
+		SetMixerVolume("SFXVolume", sfx);
+	}
+
+	private void SetMixerVolume(string parameter, float value)
+	{
+		float volume = value > 0.0001f ? Mathf.Log10(value) * 20f : -80f;
+		audioMixer.SetFloat(parameter, volume);
 	}
 }
