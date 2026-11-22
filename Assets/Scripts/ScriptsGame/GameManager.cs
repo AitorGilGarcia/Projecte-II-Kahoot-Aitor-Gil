@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject resultsPanel;
 	[SerializeField] private GameObject namePanel;
 
-
+	private bool gameStarted = false;
 	private float gameStartTime;
     private bool answered = false;
     private Coroutine questionCoroutine;
@@ -67,10 +67,13 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
-		// iniciamos todo
-		gameStartTime = Time.time;
-        // Conectamos los cuatro botones con sus respectivos índices.
-        for (int i = 0; i < answerButtons.Length; i++)
+		// Estado inicial: esperando a que el jugador introduzca su nombre.
+		namePanel.SetActive(true);
+		gamePanel.SetActive(false);
+		resultsPanel.SetActive(false);
+
+		// Conectamos los cuatro botones con sus respectivos índices.
+		for (int i = 0; i < answerButtons.Length; i++)
         {
             int answerIndex = i;
 
@@ -80,10 +83,30 @@ public class GameManager : MonoBehaviour
             });
         }
 
-        ShowQuestion();
+       // ShowQuestion();
     }
+	public void StartGame()
+	{
+		// Evitamos iniciar la partida más de una vez.
+		if (gameStarted)
+			return;
 
-    private void ShowQuestion()
+		gameStarted = true;
+
+		// Empezamos a contar el tiempo de partida.
+		gameStartTime = Time.time;
+
+		// Mostramos el panel de juego.
+		namePanel.SetActive(false);
+		gamePanel.SetActive(true);
+
+		// Mostramos la primera pregunta.
+		ShowQuestion();
+
+        //hago esto porque antes empezaba la partida antes de tiempo D:
+	}
+
+	private void ShowQuestion()
     {
         answered = false;
 

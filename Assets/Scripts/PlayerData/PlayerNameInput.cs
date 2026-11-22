@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
 
-public class PlayerNameInput : MonoBehaviour
+public class PlayerNameInput : MonoBehaviour // este script lo que hace es mandar el nombre del player y despues empezar la partida
 {
     [SerializeField] private TMP_InputField nameInput;
+	[SerializeField] private GameManager gameManager;
 
-    public void StartGame()
+	public void StartGame()
     {
         if (string.IsNullOrWhiteSpace(nameInput.text))
         {
@@ -15,6 +16,8 @@ public class PlayerNameInput : MonoBehaviour
 
         PlayerData.SetPlayerName(nameInput.text.Trim());
         Debug.Log(PlayerData.PlayerName);
-        // Aquí iniciaremos la partida.
-    }
+
+		// Iniciamos la partida después de guardar el nombre llamando a gamemanager
+		gameManager.StartGame();
+	}
 }
