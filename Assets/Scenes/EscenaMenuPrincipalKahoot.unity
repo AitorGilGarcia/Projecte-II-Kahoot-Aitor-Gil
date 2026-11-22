@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 132844565}
   - component: {fileID: 132844568}
   - component: {fileID: 132844569}
+  - component: {fileID: 132844570}
   m_Layer: 5
   m_Name: Button Create Kahoot
   m_TagString: Untagged
@@ -568,6 +569,18 @@ MonoBehaviour:
           m_StringArgument: EscenaCrearKahoot
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 132844570}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &132844566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +647,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &132844570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132844563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &135901092
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +918,7 @@ GameObject:
   - component: {fileID: 210872025}
   - component: {fileID: 210872024}
   - component: {fileID: 210872023}
+  - component: {fileID: 210872026}
   m_Layer: 5
   m_Name: ButtonSalirAbout
   m_TagString: Untagged
@@ -976,6 +1002,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 210872026}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &210872024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +1052,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210872021}
   m_CullTransparentMesh: 1
+--- !u!114 &210872026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210872021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &513542583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1420,7 @@ GameObject:
   - component: {fileID: 634597372}
   - component: {fileID: 634597371}
   - component: {fileID: 634597374}
+  - component: {fileID: 634597375}
   m_Layer: 5
   m_Name: Button exit
   m_TagString: Untagged
@@ -1440,7 +1491,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 634597372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 634597375}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &634597372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,6 +1557,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &634597375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634597369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &687620446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1736,7 @@ GameObject:
   - component: {fileID: 793320731}
   - component: {fileID: 793320730}
   - component: {fileID: 793320733}
+  - component: {fileID: 793320734}
   m_Layer: 5
   m_Name: Button about
   m_TagString: Untagged
@@ -1744,6 +1820,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 793320734}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &793320731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,6 +1885,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &793320734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793320728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &867691819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,6 +2315,7 @@ GameObject:
   - component: {fileID: 961720983}
   - component: {fileID: 961720986}
   - component: {fileID: 961720987}
+  - component: {fileID: 961720988}
   m_Layer: 5
   m_Name: Button Leaderboards
   m_TagString: Untagged
@@ -2299,6 +2400,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 961720988}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &961720984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2365,6 +2478,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &961720988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961720981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &981555296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3378,7 @@ GameObject:
   - component: {fileID: 1396777685}
   - component: {fileID: 1396777688}
   - component: {fileID: 1396777689}
+  - component: {fileID: 1396777690}
   m_Layer: 5
   m_Name: 'Boton Play '
   m_TagString: Untagged
@@ -3337,6 +3463,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1396777690}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1396777686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3403,6 +3541,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &1396777690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396777683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &1413994707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3450,6 +3600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf794d3e7d231fb4ba1274380dcf0157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  buttonClickSFX: {fileID: 8300000, guid: cc5e42f522115584b87fdbef8966c6c1, type: 3}
   musicSource: {fileID: 1255292404}
   gameplayMusicSource: {fileID: 894118552}
   sfxSource: {fileID: 1992038960}
@@ -4502,6 +4653,7 @@ GameObject:
   - component: {fileID: 1938486024}
   - component: {fileID: 1938486027}
   - component: {fileID: 1938486028}
+  - component: {fileID: 1938486029}
   m_Layer: 5
   m_Name: "Button Selecci\xF3n de informes"
   m_TagString: Untagged
@@ -4586,6 +4738,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1938486029}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1938486025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4652,6 +4816,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &1938486029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938486022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
 --- !u!1 &1971542795
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,9 @@ public class AudioManager : MonoBehaviour
 {
 	public static AudioManager Instance { get; private set; }
 
+	[Header("Sonidos")]
+	[SerializeField] private AudioClip buttonClickSFX;
+
 	[Header("Audio Sources")]
 	[SerializeField] private AudioSource musicSource;
 	[SerializeField] private AudioSource gameplayMusicSource;
@@ -67,5 +70,11 @@ public class AudioManager : MonoBehaviour
 	{
 		musicSource.Stop();
 		gameplayMusicSource.Stop();
+	}
+
+	public void PlayButtonClick()
+	{
+		if (buttonClickSFX != null)
+			sfxSource.PlayOneShot(buttonClickSFX);
 	}
 }
