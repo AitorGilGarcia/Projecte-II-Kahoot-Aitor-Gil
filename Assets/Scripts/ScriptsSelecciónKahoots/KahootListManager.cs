@@ -19,12 +19,12 @@ public class KahootListManager : MonoBehaviour
         LoadKahoots();
     }
 
-    // Busca los JSON y crea un elemento por cada Kahoot.
+    // Busca los JSON y crea un elemento por cada Kahoot
     private void LoadKahoots()
     {
         string folderPath = Path.Combine(Application.persistentDataPath,"Kahoots");
 
-        // Si todavía no existe la carpeta, no hay Kahoots guardados.
+        // Si todavía no existe la carpeta, no hay Kahoots guardados
         if (!Directory.Exists(folderPath))
         {
             Debug.Log("Todavía no existe la carpeta de Kahoots.");
@@ -39,10 +39,10 @@ public class KahootListManager : MonoBehaviour
             {
                 
 
-                // Leemos el contenido del archivo.
+                // Leemos el contenido del archivo
                 string json = File.ReadAllText(filePath);
 
-                // Convertimos el JSON en un objeto KahootData.
+                // Convertimos el JSON en un objeto KahootData
                 KahootData kahoot = JsonUtility.FromJson<KahootData>(json);
 
 				if (kahoot == null || string.IsNullOrWhiteSpace(kahoot.title) || kahoot.questions == null) // esto si el kahoot no existe, no tiene titulo o no tiene preguntas
@@ -50,24 +50,25 @@ public class KahootListManager : MonoBehaviour
 				{
 					Debug.LogWarning("No se ha podido leer correctamente: " + filePath);
 
-					ReportSaveSystem.SaveReport("Archivo JSON incorrecto", filePath, new Exception("El archivo no tiene los datos necesarios para crear un Kahoot "));
+					ReportSaveSystem.SaveReport("Archivo JSON incorrecto", filePath, new Exception
+                        ("El archivo no tiene los datos necesarios para crear un Kahoot "));
 
 					continue;
 				}
 
-				// Asignamos un ID a los Kahoots antiguos que todavía no lo tienen.
+				// Asignamos un ID a los Kahoots antiguos que todavía no lo tienen
 				if (string.IsNullOrEmpty(kahoot.id))
                 {
                     kahoot.id = Guid.NewGuid().ToString();
 
-                    // Actualizamos el JSON para conservar el identificador.
+                    // Actualizamos el JSON para conservar el identificador
                     File.WriteAllText(filePath, JsonUtility.ToJson(kahoot, true));
                 }
 
-                // Creamos una copia del prefab dentro de Content.
+                // Creamos una copia del prefab dentro de Content
                 GameObject newItem = Instantiate(kahootItemPrefab, contentParent);
 
-                // Le pasamos los datos al componente de interfaz.
+                // Le pasamos los datos al componente de interfaz
                 KahootItemUI itemUI = newItem.GetComponent<KahootItemUI>();
 
                 if (itemUI != null)
@@ -94,7 +95,7 @@ public class KahootListManager : MonoBehaviour
         Debug.Log("Kahoots encontrados: " + files.Length);
     }
 
-    // Se ejecuta cuando pulsamos el botón de un Kahoot.
+    // Se ejecuta cuando pulsamos el botón de un Kahoot
     private void OnKahootSelected(KahootData kahoot)
     {
         Debug.Log("Has seleccionado: " + kahoot.title);
@@ -110,7 +111,7 @@ public class KahootListManager : MonoBehaviour
         {
 			GameSession.SetSelectedKahoot(kahoot); //Guardamos que kahoot hemos seleccionado para jugar
 
-			UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaGame"); // vamos a la escena de donde esta la partida ---- mirar esto
+			UnityEngine.SceneManagement.SceneManager.LoadScene("EscenaGame"); // vamos a la escena de donde esta la partida 
 		}
 		
 	}

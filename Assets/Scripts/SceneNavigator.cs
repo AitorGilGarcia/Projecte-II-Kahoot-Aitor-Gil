@@ -3,21 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigator : MonoBehaviour
 {
-    public static SceneNavigator Instance { get; private set; }
+    public static SceneNavigator Instance { get; private set; } // hacer una instancia de este para que se peuda acceder desde cualquier lado
 
     private void Awake()
     {
-        // Comprobamos si ya existe una instancia.
+        // Comprobamos si ya existe una instancia
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        // Guardamos esta instancia.
+        // Guardamos esta instancia
         Instance = this;
 
-        // Evitamos que se destruya al cambiar de escena.
+        // Evitamos que se destruya al cambiar de escena
         DontDestroyOnLoad(gameObject);
     }
 
@@ -27,13 +27,13 @@ public class SceneNavigator : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // Vuelve al menú principal.
+    // Vuelve al menú principal
     public void GoToMainMenu()
     {
         LoadScene("EscenaMenuPrincipalKahoot");
     }
 
-    // Cierra el juego.
+    // Cierra el juego
     public void ExitGame()
     {
         Application.Quit();
