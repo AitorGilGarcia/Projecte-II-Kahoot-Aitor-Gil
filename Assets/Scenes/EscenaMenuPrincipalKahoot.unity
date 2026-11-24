@@ -2343,6 +2343,7 @@ GameObject:
   - component: {fileID: 634597371}
   - component: {fileID: 634597374}
   - component: {fileID: 634597375}
+  - component: {fileID: 634597376}
   m_Layer: 5
   m_Name: Button exit
   m_TagString: Untagged
@@ -2426,9 +2427,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1549596360}
-        m_TargetAssemblyTypeName: SceneNavigator, Assembly-CSharp
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 634597376}
+        m_TargetAssemblyTypeName: ExitGame, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2503,6 +2504,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328f9457a36cc57499639f5f26799057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSound
+--- !u!114 &634597376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634597369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f9c656a37d56f4da15c92cf33ee69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExitGame
 --- !u!1 &687620446
 GameObject:
   m_ObjectHideFlags: 0

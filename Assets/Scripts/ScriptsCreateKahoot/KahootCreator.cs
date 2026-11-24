@@ -25,6 +25,18 @@ public class KahootCreator : MonoBehaviour
 
     private void Start()
     {
+        // Limitamos el número de caracteres de cada campo
+        titleInput.characterLimit = 30;
+        descriptionInput.characterLimit = 50;
+
+        timeInput.characterLimit = 2;
+        questionInput.characterLimit = 90;
+
+        foreach (TMP_InputField answer in answerInputs)
+        {
+            answer.characterLimit = 80;
+        }
+
         // Empezamos con una pregunta vacía.
         questions.Add(new QuestionData());
 
