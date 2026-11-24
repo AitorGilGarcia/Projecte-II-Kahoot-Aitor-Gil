@@ -1,10 +1,9 @@
 using System;
 using System.IO;
 using System.Text;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Audio;
-using static UnityEditor.PlayerSettings;
+
 
 // Este script será el encargado de generar y guardar automáticamente los informes de errores en archivos.txt.
 
