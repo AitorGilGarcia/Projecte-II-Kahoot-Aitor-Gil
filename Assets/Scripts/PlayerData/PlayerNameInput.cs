@@ -6,7 +6,13 @@ public class PlayerNameInput : MonoBehaviour // este script lo que hace es manda
     [SerializeField] private TMP_InputField nameInput;
 	[SerializeField] private GameManager gameManager;
 
-	public void StartGame()
+    private void Start()
+    {
+        // Limitamos el nombre del jugador a 15 caracteres
+        nameInput.characterLimit = 15;
+    }
+
+    public void StartGame()
     {
         if (string.IsNullOrWhiteSpace(nameInput.text))
         {
