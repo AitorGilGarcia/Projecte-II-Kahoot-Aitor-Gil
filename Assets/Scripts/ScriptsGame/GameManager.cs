@@ -67,12 +67,12 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
-		// Estado inicial: esperando a que el jugador introduzca su nombre.
+		// Estado inicial: esperando a que el jugador introduzca su nombre
 		namePanel.SetActive(true);
 		gamePanel.SetActive(false);
 		resultsPanel.SetActive(false);
 
-		// Conectamos los cuatro botones con sus respectivos índices.
+		// Conectamos los cuatro botones con sus respectivos indices
 		for (int i = 0; i < answerButtons.Length; i++)
         {
             int answerIndex = i;
@@ -87,20 +87,20 @@ public class GameManager : MonoBehaviour
     }
 	public void StartGame()
 	{
-		// Evitamos iniciar la partida más de una vez.
+		// Evitamos iniciar la partida más de una vez
 		if (gameStarted)
 			return;
 
 		gameStarted = true;
 
-		// Empezamos a contar el tiempo de partida.
+		// Empezamos a contar el tiempo de partida
 		gameStartTime = Time.time;
 
 		// Mostramos el panel de juego.
 		namePanel.SetActive(false);
 		gamePanel.SetActive(true);
 
-		// Mostramos la primera pregunta.
+		// Mostramos la primera pregunta
 		ShowQuestion();
 
         //hago esto porque antes empezaba la partida antes de tiempo D:
@@ -110,20 +110,20 @@ public class GameManager : MonoBehaviour
     {
         answered = false;
 
-		// Iniciamos la música de la partida.
+		// Iniciamos la música de la partida
 		AudioManager.Instance?.PlayGameplayMusic();
 
 		QuestionData question = currentKahoot.questions[currentQuestionIndex]; // pilla la pregunta del currentKahoot, que es el GameSession
 
-        // Mostramos el enunciado.
+        // Mostramos el enunciado
         questionText.text = question.questionText;
 
-        // Mostramos el número de pregunta.
+        // Mostramos el número de pregunta
         questionCounterText.text =
             "Pregunta " + (currentQuestionIndex + 1) +
             " / " + currentKahoot.questions.Count;
 
-        // Mostramos las cuatro respuestas.
+        // Mostramos las cuatro respuestas
         for (int i = 0; i < answerButtons.Length; i++)
         {
             TMP_Text answerText =
@@ -131,14 +131,14 @@ public class GameManager : MonoBehaviour
 
             answerText.text = question.answers[i];
 
-            // Recuperamos el color original.
+            // Recuperamos el color original
             answerButtons[i].targetGraphic.color = Color.white;
 
-            // Permitimos volver a pulsar el botón.
+            // Permitimos volver a pulsar el boton
             answerButtons[i].interactable = true;
         }
 
-        // Iniciamos el temporizador de esta pregunta.
+        // Iniciamos el temporizador de esta pregunta
         questionCoroutine = StartCoroutine(QuestionTimer(question.timeLimit));
     }
 
@@ -155,12 +155,12 @@ public class GameManager : MonoBehaviour
             remainingTime--;
         }
 
-        // Si se acaba el tiempo sin responder.
+        // Si se acaba el tiempo sin responder
         if (!answered)
         {
             answered = true;
 
-			// Detenemos la música y reproducimos el efecto de respuesta.
+			// Detenemos la música y reproducimos el efecto de respuesta
 			AudioManager.Instance?.StopMusic();
 			AudioManager.Instance?.PlaySFX(answerFeedbackSFX);
 
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
             NextQuestion();
         }
     }
-
+    
     private void SelectAnswer(int answerIndex)
     {
         // Evitamos que se pueda responder varias veces
@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour
 
         NextQuestion();
     }
-
+    
     private void NextQuestion()
     {
         currentQuestionIndex++;
@@ -318,22 +318,3 @@ public class GameManager : MonoBehaviour
 	}
 
 }
-
-//este script lo que hace es gestionar la partida
-
-
-// test para ver si se conecta al kahoot seleccionado 
-
-//private void Start()
-//{
-//    currentKahoot = GameSession.SelectedKahoot;
-
-//    if (currentKahoot == null)
-//    {
-//        Debug.LogError("No se ha seleccionado ningún Kahoot.");
-//        return;
-//    }
-
-//    Debug.Log("Kahoot cargado: " + currentKahoot.title);
-//    Debug.Log("Número de preguntas: " + currentKahoot.questions.Count);
-//}

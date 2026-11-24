@@ -1,13 +1,9 @@
 public static class GameSession
 {
 	public static KahootData SelectedKahoot { get; private set; }
-
 	public static bool OpenLeaderboardDirectly { get; private set; }
-
 	public static bool ShowResultsOnReturn { get; private set; }
-
 	public static int FinalScore { get; private set; }
-
 	public static void SetSelectedKahoot(KahootData kahoot) // indicar que kahoot esta seleccionado
 	{
 		SelectedKahoot = kahoot;
@@ -16,7 +12,6 @@ public static class GameSession
 	{
 		FinalScore = score;
 	}
-
 	public static void RequestDirectLeaderboard() // indicamos si queremos abrir la leaderboard directamente, esto es para cuando termina la partida, poder ver la leaderboard sin tener que 
 												  // seleccioanrla en el panel anterior que hay
 	{
@@ -26,7 +21,6 @@ public static class GameSession
 	{
 		bool requested = OpenLeaderboardDirectly;
 		OpenLeaderboardDirectly = false;
-
 		return requested;
 	}
 
@@ -43,4 +37,4 @@ public static class GameSession
 	}
 }
 
-//este script lo que hace es guardar que kahoot hemos seleccionado
+//este script lo que hace es guardar que kahoot hemos seleccionado y gestionar lo de abrir la leaderboard desde el final

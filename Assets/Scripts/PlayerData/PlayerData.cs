@@ -8,6 +8,3 @@ public static class PlayerData
     }
 }
 
-//Debug.Log(PlayerData.PlayerName); para pillar el nombre llamo a playername y ya
-
-// Ej: string playerName = PlayerData.PlayerName;
