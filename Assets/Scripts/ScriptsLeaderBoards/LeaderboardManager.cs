@@ -37,34 +37,34 @@ public class LeaderboardManager : MonoBehaviour
 
 	public void ShowLeaderboard(KahootData kahoot)
 	{
-		// Ocultamos la selección de Kahoots.
+		// Ocultamos la selección de Kahoots
 		panelSeleccionKahoot.SetActive(false);
 
-		// Mostramos el leaderboard.
+		// Mostramos el leaderboard
 		panelLeaderboard.SetActive(true);
 
-		// Ponemos el título del Kahoot seleccionado.
+		// Ponemos el título del Kahoot seleccionado
 		tituloKahoot.text = kahoot.title;
 
-
-        // Eliminar los elementos anteriores.
+	
+        // Eliminar los elementos anteriores
         foreach (Transform child in contentParent)
         {
             Destroy(child.gameObject);
         }
 
-        // Leer los resultados del XML.
+        // Leer los resultados del XML
         LeaderboardData data = LeaderboardSaveSystem.LoadResults(kahoot);
 
-        // Ordenar por puntuación y después por tiempo.
+        // Ordenar por puntuación y después por tiempo
         var results = data.results.OrderByDescending(r => r.score).ThenBy(r => r.totalTime).ToList();
 
-        // Mostrar mensaje si no hay resultados.
+        // Mostrar mensaje si no hay resultados
         bool hasResults = results.Count > 0;
 
         if (emptyText != null) emptyText.gameObject.SetActive(!hasResults);
 
-        // Crear un prefab por cada resultado.
+        // Crear un prefab por cada resultado
         for (int i = 0; i < results.Count; i++)
         {
             GameObject newItem = Instantiate(leaderboardItemPrefab, contentParent);
@@ -84,7 +84,7 @@ public class LeaderboardManager : MonoBehaviour
 
 	public void BackToSelection()
 	{
-		// Si hemos entrado desde una partida, volvemos a sus resultados.
+		// Si hemos entrado desde una partida, volvemos a sus resultados
 		if (returnToGameAfterLeaderboard)
 		{
 			GameSession.RequestShowResultsOnReturn();
@@ -92,7 +92,7 @@ public class LeaderboardManager : MonoBehaviour
 		}
 		else
 		{
-			// Si hemos entrado desde el menú, volvemos al selector.
+			// Si hemos entrado desde el menú, volvemos al selector
 			panelLeaderboard.SetActive(false);
 			panelSeleccionKahoot.SetActive(true);
 		}

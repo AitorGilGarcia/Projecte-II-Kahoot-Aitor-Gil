@@ -63,8 +63,7 @@ public static class LeaderboardSaveSystem
                 .ThenBy(r => r.totalTime)
                 .ToList();
 
-            XmlSerializer serializer =
-                new XmlSerializer(typeof(LeaderboardData));
+            XmlSerializer serializer = new XmlSerializer(typeof(LeaderboardData));
 
             using (FileStream stream = new FileStream(
                 filePath, FileMode.Create))

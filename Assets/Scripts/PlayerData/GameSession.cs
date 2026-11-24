@@ -37,4 +37,4 @@ public static class GameSession
 	}
 }
 
-//este script lo que hace es guardar que kahoot hemos seleccionado y gestionar lo de abrir la leaderboard desde el final
+//este script lo que hace es guardar que kahoot hemos seleccionado y gestionar la info de lo de abrir la leaderboard desde el final
